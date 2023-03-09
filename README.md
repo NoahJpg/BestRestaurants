@@ -1,63 +1,76 @@
-## What Is This?
+# _Best Restaurants_
 
-This is an example repo corresponding to multiple lessons within the LearnHowToProgram.com walkthrough on creating a To Do List application in [Section 3: Database Basics](https://www.learnhowtoprogram.com/c-and-net/database-basics).
+#### By Noah Atkinson
 
-This project corresponds to the classwork and lessons that describe how to connect an ASP.NET Core MVC project to a MySQL database using [Entity Framework Core](https://learn.microsoft.com/en-us/ef/core/). There are multiple lessons in this series. The first lesson in the series is [Introducing Entity Framework Core](https://www.learnhowtoprogram.com/c-and-net/database-basics/introducing-entity-framework).
+#### _A web application where users can add their favorite restaurants based on the type of cuisine they offer._
 
-There are multiple branches in this repo that are described more below.
+## Technologies Used
 
-## How To Run This Project
+* _C#_
+* _.NET_
+* _MVC_
+* _SQL Workbench_
+* _Entity Framework_
 
-### Install Tools
+## Setup/Installation Requirements
 
-Install the tools that are introduced in [this series of lessons on LearnHowToProgram.com](https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c).
+* _Clone this repo._
+* _Open your terminal (e.g., Terminal or GitBash) and navigate to this project's production directory called "BestRestaurants"._
+* _This program was built using `Microsoft .NET SDK 6.0`, and may not be compatible with other versions._
+*  _Open the browser to [https://localhost:5001]. If you cannot access localhost:5001 it is likely because you have not configured a .NET developer security certificate for HTTPS. To learn about this, visit: [Redirecting to HTTPS and Issuing a Security Certificate.](https://www.learnhowtoprogram.com/c-and-net/basic-web-applications/redirecting-to-https-and-issuing-a-security-certificate)_
 
-### Set up the Databases
-
-Follow the instructions in the LearnHowToProgram.com lesson ["Creating a Test Database: Exporting and Importing Databases with MySQL Workbench"](https://www.learnhowtoprogram.com/lessons/creating-a-test-database-exporting-and-importing-databases-with-mysql-workbench) to use the `todolist_with_ef_core_dump.sql` file located at the top level of this repo to create a new database in MySQL Workbench with the name `to_do_list_with_ef_core`.
-
-### Set Up and Run Project
-
-1. Clone this repo.
-2. Open the terminal and navigate to this project's production directory called "ToDoList".
-3. Within the production directory "ToDoList", create a new file called `appsettings.json`.
-4. Within `appsettings.json`, put in the following code, replacing the `uid` and `pwd` values with your own username and password for MySQL. For the LearnHowToProgram.com lessons, we always assume the `uid` is `root` and the `pwd` is `epicodus`.
-
+## SQL Workbench Configuration
+* _Create an `appsetting.json` file in the "BestRestaurants" directory of the project._
+* _Within `appsettings.json`, put in the following code, replacing the `uid` and `pwd` values with your own username and password for MySQL. Be sure to exclude the brackets as well_ 
 ```json
 {
-  "ConnectionStrings": {
-      "DefaultConnection": "Server=localhost;Port=3306;database=to_do_list_with_ef_core;uid=root;pwd=epicodus;"
-  }
+    "ConnectionStrings": {
+        "DefaultConnection": "Server=localhost;Port=3306;database=best_restaurants;uid=[YOUR-USERNAME-HERE];pwd=[YOUR-PASSWORD-HERE];"
+    }
 }
 ```
+* _If you'd like to push this cloned project to a public-facing repository, remember to add the appsettings.json file to your .gitignore first._
+* _Once "appsettings.json" file has been created, navigate back to SQL Workbench._ 
+* _Import the database named ``"noah_atkinson.sql"`` from the root directory of the project._ 
 
-5. Within the production directory "ToDoList", run `dotnet watch run` in the command line to start the project in development mode with a watcher.
-4. Open the browser to _https://localhost:5001_. If you cannot access localhost:5001 it is likely because you have not configured a .NET developer security certificate for HTTPS. To learn about this, review this lesson: [Redirecting to HTTPS and Issuing a Security Certificate](https://www.learnhowtoprogram.com/lessons/redirecting-to-https-and-issuing-a-security-certificate).
+## Database Import Instructions
 
+* _Open SQL workbench._
+* _Navigate to the "Administration" tab in SQL Workbench._
+* _Click ``"Data Import/Restore"``_
+* _Select the radio button "Import from Self-Contained File" and include file path to the sql file of this project that has been cloned to your machine._
+* _In "Default Schema to be Imported to" click "New"._
+* _Name the schema ``"best_restaurants"`` then click "OK"._
+* _Once named, switch to ``"Import Progress"`` tab and click ``"Start Import"``._
+* _In the command line, run the command ``dotnet run`` to compile and execute the application._
+* _Optionally, you can run ``dotnet build`` to compile this app without running it._
 
-## Available Branches
+## Known Bugs
 
-**1_ef_core_setup**: This is the default branch with the starter code for the To Do List project as an ASP.NET Core MVC web application that is configured to use Entity Framework Core to communicate with a MySQL database. This branch includes the code we added after working through the following lessons:
+* _None_
 
-- https://www.learnhowtoprogram.com/c-and-net/database-basics/introducing-entity-framework-core
-- https://www.learnhowtoprogram.com/c-and-net/database-basics/configuration-for-entity-framework-core
+## License
 
+_If you have any issues or have questions, ideas or concerns please contact me at [noahatkinson1.1@gmail.com](mailto:noahatkinson1.1@gmail.com)_
 
-**2_create_read_and_details_with_html_helpers**: This branch includes the code we added after working through the following lessons:
+MIT License
 
-- https://www.learnhowtoprogram.com/c-and-net/database-basics/read-with-ef-core
-- https://www.learnhowtoprogram.com/c-and-net/database-basics/create-with-ef-core
-- https://www.learnhowtoprogram.com/c-and-net/database-basics/html-helper-methods-lambda-expressions-and-string-interpolation
-- https://www.learnhowtoprogram.com/c-and-net/database-basics/showing-item-details-with-ef-core
-- https://www.learnhowtoprogram.com/c-and-net/database-basics/further-exploration-with-testing
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-**3_update_and_delete**: This branch includes the code we added after working through the following lessons:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-- https://www.learnhowtoprogram.com/c-and-net/database-basics/update-with-ef-core
-- https://www.learnhowtoprogram.com/c-and-net/database-basics/delete-with-ef-core
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
-**4_one_to_many_relationship**: This branch includes the code we added after working through the following lessons:
-
-- https://www.learnhowtoprogram.com/c-and-net/database-basics/establishing-a-one-to-many-relationship-with-navigation-properties
-- https://www.learnhowtoprogram.com/c-and-net/database-basics/using-viewbag
-- https://www.learnhowtoprogram.com/c-and-net/database-basics/create-and-update-with-a-one-to-many-relationship
+Copyright (c) _2023_ _Noah Atkinson_
